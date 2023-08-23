@@ -1,10 +1,10 @@
 <script setup>
-import {onMounted, ref, watch} from 'vue'
-import  dayjs from 'dayjs'
-let content=ref('')
+import { ref, watch} from 'vue'
 const count = ref(0)
 
 import TinycmeEditor from "./TinycmeEditor/index.vue";
+import {postBlog} from "../api/postBlog.js";
+import {ElNotification} from "element-plus";
 
 let editorData=ref('')
 
@@ -14,7 +14,12 @@ watch(editorData, (newValue) => {
 
 function submitForm(){
   //todo
-
+  postBlog(editorData.value).then(res=>{
+    ElNotification({
+      title: 'Title',
+      message: res.data.data,
+    })
+  })
 }
 
 

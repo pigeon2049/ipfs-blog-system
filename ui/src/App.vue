@@ -1,9 +1,9 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import NewPost from './components/NewPost.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <NewPost />
 </template>
 
 <style scoped>
