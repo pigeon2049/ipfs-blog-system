@@ -31,8 +31,10 @@ public class PostBlog {
 
     @PostMapping
     public boolean postBlog(@RequestBody String body) throws IOException {
-        body= StringEscapeUtils.escapeJava(body);
-        body=body.substring(2,body.length() - 2);
+        body= StringEscapeUtils.unescapeHtml4(body);
+        body= StringEscapeUtils.unescapeJava(body);
+
+        body=body.substring(1,body.length() - 1);
         VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
         velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
