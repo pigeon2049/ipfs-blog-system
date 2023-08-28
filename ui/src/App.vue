@@ -1,11 +1,18 @@
 <script setup>
-import NewPost from './components/NewPost.vue'
+
+import Index from "./views/index.vue";
 </script>
 
 <template>
-  <NewPost />
+  <div class="main-container">
+    <index />
+  </div>
+
 </template>
 
 <style scoped>
-
+.main-container{
+  width: 100vw;
+  height: 100vh;
+}
 </style>
